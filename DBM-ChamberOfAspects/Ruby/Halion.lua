@@ -260,7 +260,7 @@ function mod:UNIT_HEALTH(uId)
 		warned_preP2 = true
 		warnPhase2Soon:Show()	
 	elseif not warned_preP3 and self:GetUnitCreatureId(uId) == 40142 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.55 then
-		DEFAULT_CHAT_FRAME:AddMessage("Phase 3 soon!")
+		mod:PrivatePalaMsg(1)
 		warned_preP3 = true
 		warnPhase3Soon:Show()	
 	end
@@ -363,5 +363,7 @@ end
 function mod:PrivatePalaMsg(arg)
 	if arg == 0 then
 		DEFAULT_CHAT_FRAME:AddMessage("Cutter is now off!")	
+	elseif arg == 1 then
+		DEFAULT_CHAT_FRAME:AddMessage("Phase 3 soon!")
 	end
 end

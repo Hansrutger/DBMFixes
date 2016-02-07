@@ -25,6 +25,7 @@ local timerConflag			= mod:NewBuffActiveTimer(5, 74456)
 local timerConflagCD		= mod:NewNextTimer(50, 74452)
 local timerBreath			= mod:NewCDTimer(25, 74404, nil, mod:IsTank() or mod:IsHealer())
 local timerEnrage			= mod:NewBuffActiveTimer(10, 78722)
+local timerAirphase			= mod:NewTimer(60, "Air Phase" 43810)
 
 mod:AddBoolOption("RangeFrame")
 mod:AddBoolOption("BeaconIcon")
@@ -42,6 +43,7 @@ end
 function mod:OnCombatStart(delay)
 	timerConflagCD:Start(60)--need more pulls to verify consistency
 	timerBreath:Start(12-delay)--need more pulls to verify consistency
+	AirPhaseHandler(60)
 	table.wipe(beaconTargets)
 	beaconIcon = 8
 	if self.Options.RangeFrame then
@@ -73,6 +75,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerConflagCD:Start(42)
 		timerBeacon:Start()
 		timerConflag:Schedule(5)
+		AirPhaseHandler(30)
 		if args:IsPlayer() then
 			specWarnBeacon:Show()
 		end
@@ -92,4 +95,9 @@ function mod:SPELL_AURA_REMOVED(args)
 	if args:IsSpellID(78722) then
 		timerEnrage:Cancel()
 	end
+end
+
+function mod:AirPhaseHandler(time)
+	local timerAirphase = mod:NewTimer(time, "Air Phase" 43810)
+	timerAirphase:Start()
 end

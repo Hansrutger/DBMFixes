@@ -1,3 +1,9 @@
+--[[ 
+TODO:
+- Check if messages appear.
+
+--]]
+
 local mod	= DBM:NewMod("Halion", "DBM-ChamberOfAspects", 2)
 local L		= mod:GetLocalizedStrings()
 
@@ -130,6 +136,7 @@ function mod:raidWarningAboutCutter()
 		self:ScheduleMethod(29 - FIRST_WARNING_DELAY, "raidWarningAboutCutter")
 		timeBeforeCutter = FIRST_WARNING_DELAY
 		timerCutterTrueWow:Start(29)
+		mod:ScheduleMethod(9, "PrivatePalaMsg", 0)
 	end
 end
 
@@ -258,7 +265,8 @@ function mod:UNIT_HEALTH(uId)
 	if not warned_preP2 and self:GetUnitCreatureId(uId) == 39863 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.79 then
 		warned_preP2 = true
 		warnPhase2Soon:Show()	
-	elseif not warned_preP3 and self:GetUnitCreatureId(uId) == 40142 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.54 then
+	elseif not warned_preP3 and self:GetUnitCreatureId(uId) == 40142 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.55 then
+		mod:PrivatePalaMsg(1)
 		warned_preP3 = true
 		warnPhase3Soon:Show()	
 	end
@@ -355,5 +363,13 @@ function mod:OnSync(msg, target)
 		warnPhase3:Show()
 		timerMeteorCD:Start(30) --These i'm not sure if they start regardless of drake aggro, or if it varies as well.
 		timerFieryConsumptionCD:Start(20)--not exact, 15 seconds from tank aggro, but easier to add 5 seconds to it as a estimate timer than trying to detect this
+	end
+end
+
+function mod:PrivatePalaMsg(arg)
+	if arg == 0 then
+		DEFAULT_CHAT_FRAME:AddMessage("Cutter is now off!")	
+	elseif arg == 1 then
+		DEFAULT_CHAT_FRAME:AddMessage("Phase 3 soon!")
 	end
 end

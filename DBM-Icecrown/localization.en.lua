@@ -258,6 +258,7 @@ L:SetOptionLocalization{
 	SetIconOnGasSpore	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(69279),
 	AnnounceSporeIcons	= "Announce icons for $spell:69279 targets to raid chat\n(requires announce to be enabled and promoted status)",
 	AchievementCheck	= "Announce 'Flu Shot Shortage' achievement failure to raid\n(requires promoted status)"
+	
 }
 
 L:SetMiscLocalization{
@@ -469,6 +470,31 @@ L:SetMiscLocalization{
 }
 
 ------------------
+--   Rimefang   --
+------------------
+L = DBM:GetModLocalization("Rimefang")
+
+L:SetGeneralLocalization{
+	name = "Rimefang"
+}
+
+L:SetTimerLocalization{
+	
+}
+
+L:SetWarningLocalization{
+	
+}
+
+L:SetOptionLocalization{
+	
+}
+
+L:SetMiscLocalization{
+	
+}
+
+------------------
 --  Sindragosa  --
 ------------------
 L = DBM:GetModLocalization("Sindragosa")
@@ -528,7 +554,7 @@ L:SetMiscLocalization{
 	WhisperUnchained	= "Stop casting, you have debuff!",
 	WhisperUnchainedRemind = "Stop casting! You have %d stack(s) of debuff!",
 	WhisperChilledToTheBone="Stop attack, press Esc - don't stack debuff!",
-	SayBeacon			= "%s run, you're tomb beacon!"
+	SayBeacon			= "%s beaconed: RUN!"
 }
 
 ---------------------

@@ -65,4 +65,5 @@ TheCrimsonHall\CrimsonHallTrash.lua
 FrostwingHalls\Valithria.lua
 FrostwingHalls\Sindragosa.lua
 FrostwingHalls\FrostwingHallTrash.lua
+FrostwingHalls\Rimefang.lua
 TheFrozenThrone\LichKing.lua

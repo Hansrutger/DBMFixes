@@ -38,7 +38,7 @@ local icyBlastCounter = 0
 
 function mod:OnCombatStart(delay)
 	SendChatMessage("DEBUG: Hello World or should I say, Rimefang.", "SAY")
-	mod:StartNewAirPhase(33)
+	mod:StartNewAirPhase(32)
 end
 
 function mod:StartNewAirPhase(value)

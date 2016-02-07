@@ -1,3 +1,9 @@
+--[[ 
+TODO:
+- Check if functions and timers are okay.
+
+--]]
+
 local mod	= DBM:NewMod("Saviana", "DBM-ChamberOfAspects", 2)
 local L		= mod:GetLocalizedStrings()
 

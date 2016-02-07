@@ -1,3 +1,9 @@
+--[[ 
+TODO:
+- Check if messages appear.
+
+--]]
+
 local mod	= DBM:NewMod("Halion", "DBM-ChamberOfAspects", 2)
 local L		= mod:GetLocalizedStrings()
 
